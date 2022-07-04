@@ -1,7 +1,7 @@
 <!-- Hasta bilgilerini girdikten sonra bu sayfaya yönlendirilecek -->
 <!-- Bu sayfa uygun randevuları listeleyecek -->
 <p>randevular works!</p>
-<p>{{ firstName }}</p>
+<!-- <p>{{ firstName }}</p> -->
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
   <label for="date">Date: </label>
   <input id="date" type="text" formControlName="date" />
@@ -23,6 +23,6 @@
   <button type="submit" [disabled]="!profileForm.valid">Submit</button>
   <p>Form Status: {{ profileForm.status }}</p>
 </form>
-<ul>
-  <li *ngFor="let post of posts">{{ post.title }}</li>
-</ul>
+<app-calendar [randevular]="randevular"></app-calendar>
+
+

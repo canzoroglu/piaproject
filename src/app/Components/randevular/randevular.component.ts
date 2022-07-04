@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../Models/post';
+import { Randevu, randevular } from '../../Models/randevu';
 import { Router } from '@angular/router';
 import {
   FormGroup,
@@ -19,8 +20,9 @@ export class RandevularComponent implements OnInit {
     time: ['', Validators.required],
     doctor: ['', Validators.required],
   });
-  firstName = history.state.data.firstName;
-  posts: Post[] = [];
+  // firstName = history.state.data.firstName;
+  // posts: Post[] = [];
+  randevular: Randevu[] = randevular.filter(randevu => randevu.klinik == history.state.data.klinik);
   constructor(private fb: FormBuilder, private router: Router) {}
 
   onSubmit(): void {
@@ -31,9 +33,9 @@ export class RandevularComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then((response) => response.json())
-      .then((json) => (this.posts = json));
+    // fetch('https://jsonplaceholder.typicode.com/posts')
+    //   .then((response) => response.json())
+    //   .then((json) => (this.posts = json));
   }
 }
 

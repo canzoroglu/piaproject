@@ -33,6 +33,7 @@ export class LoginformComponent implements OnInit {
     this.profileForm.patchValue({
       firstName: 'Can',
       lastName: 'Zoroğlu',
+      tc: '12345',
     });
   }
 }
