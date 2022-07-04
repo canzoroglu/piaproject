@@ -17,8 +17,8 @@ export class LoginformComponent implements OnInit {
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     tc: ['', [Validators.required, Validators.pattern(/\d{5}/)]],
+    klinik: ['', Validators.required],
   });
-  submitted = false;
   constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {}

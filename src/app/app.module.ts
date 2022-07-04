@@ -10,6 +10,7 @@ import { RandevualComponent } from './Components/randevual/randevual.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginformComponent } from './Components/loginform/loginform.component';
 import { RandevularComponent } from './Components/randevular/randevular.component';
+import { RandevularimComponent } from './Components/randevularim/randevularim.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RandevularComponent } from './Components/randevular/randevular.componen
     HomeComponent,
     LoginformComponent,
     RandevularComponent,
+    RandevularimComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
