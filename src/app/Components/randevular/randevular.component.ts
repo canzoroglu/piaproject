@@ -1,3 +1,7 @@
+/*
+Bu komponent hastanın seçtiği klinikteki uygun randevuları gösteren ve hastanın bunlardan birini seçip
+randevu almasına olanak tanımaktadır.
+*/
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../Models/post';
 import { Randevu, randevular } from '../../Models/randevu';
@@ -22,7 +26,10 @@ export class RandevularComponent implements OnInit {
   });
   // firstName = history.state.data.firstName;
   // posts: Post[] = [];
-  randevular: Randevu[] = randevular.filter(randevu => randevu.klinik == history.state.data.klinik);
+
+  // history.state.data.klinik buraya loginform.component.ts'den geliyor
+  klinik = history.state.data.klinik;
+  randevular: Randevu[] = randevular.filter(randevu => randevu.klinik == this.klinik);
   constructor(private fb: FormBuilder, private router: Router) {}
 
   onSubmit(): void {
@@ -39,7 +46,3 @@ export class RandevularComponent implements OnInit {
   }
 }
 
-/*
-API'den uygun randevuları çek. Kullanıcı view'den randevu gün, saatini ve doktoru seçecek ve 
-randevu oluşturucak 
-*/

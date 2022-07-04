@@ -10,10 +10,8 @@
 
   <label for="klinik">Klinik: </label>
   <select id="klinik" name="klinik" formControlName="klinik">
-    <option>Ortopedi</option>
-    <option>Göz</option>
-    <option>Dahiliye</option>
-    <option>Dermatoloji</option>
+    <option value="seciniz">Klinik Seçiniz</option>
+    <option *ngFor="let klinik of klinikler">{{klinik}}</option>
   </select>
 
   <p>Complete the form to enable button.</p>

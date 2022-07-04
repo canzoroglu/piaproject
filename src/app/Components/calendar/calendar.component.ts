@@ -10,6 +10,7 @@ import { Randevu } from 'src/app/Models/randevu';
 export class CalendarComponent implements OnInit {
 
   @Input() randevular!: Randevu[];
+  @Input() klinik!: string;
   constructor() { }
 
   ngOnInit(): void {

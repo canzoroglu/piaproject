@@ -1,3 +1,8 @@
+/*
+Randevuları listelediğim sayfada kullandığım verileri içeren dosya
+Hangi kliniklerin olduğu, buralarda hangi doktorların çalıştığı bilgilerini API'den almalıyım 
+*/
+
 export class Randevu {
   date: Date;
   doctor: string;
@@ -10,8 +15,9 @@ export class Randevu {
   }
 }
 
-const klinikler:any = {"Göz":["Ali", "Veli"], "Ortopedi": ["Ahmet", "Mehmet"], "Dahiliye":["Selim", "Ayşe"], 
-"Cildiye":["Fatma", "Murat"]}
+export const klinikler:any = {"Göz":["Ali", "Veli"], "Ortopedi": ["Ahmet", "Mehmet"], "Dahiliye":["Selim", "Ayşe"], 
+"Cildiye":["Fatma", "Murat"]};
+
 const randevuList: Randevu[] = [];
 for (const klinik in klinikler) {
     for (const doctor of klinikler[klinik]) {

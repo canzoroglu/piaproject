@@ -1,3 +1,4 @@
+// Bu komponent hastanın tüm randevularını listelemek için
 import { Component, OnInit } from '@angular/core';
 
 @Component({

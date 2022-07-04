@@ -1,3 +1,4 @@
+// Bu komponent hasta bilgilerini alıp, ilgili klinik için randevu alma sayfasına yönlendirecek
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {
@@ -6,6 +7,7 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
+import { klinikler } from 'src/app/Models/randevu';
 
 @Component({
   selector: 'app-loginform',
@@ -19,6 +21,7 @@ export class LoginformComponent implements OnInit {
     tc: ['', [Validators.required, Validators.pattern(/\d{5}/)]],
     klinik: ['', Validators.required],
   });
+  klinikler = Object.keys(klinikler);
   constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {}
