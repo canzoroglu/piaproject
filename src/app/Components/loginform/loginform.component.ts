@@ -7,7 +7,8 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
-import { klinikler } from 'src/app/Models/randevu';
+// import { klinikler } from 'src/app/Models/randevu';
+import { allConstants } from 'src/app/constants';
 
 @Component({
   selector: 'app-loginform',
@@ -21,11 +22,18 @@ export class LoginformComponent implements OnInit {
     tc: ['', [Validators.required, Validators.pattern(/\d{5}/)]],
     klinik: ['', Validators.required],
   });
-  klinikler = Object.keys(klinikler);
+  klinikler : string[] = [];
   selectedKlinik = "";
   constructor(private fb: FormBuilder, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    fetch(`${allConstants.BASE_URL}/appoinment`)
+      .then((response) => response.json())
+      .then((json) => {
+        this.klinikler = json;
+        console.log(this.klinikler);
+      });
+  }
 
   handleChange(event:EventTarget)
   {
@@ -33,7 +41,7 @@ export class LoginformComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.warn("loginform", this.profileForm.value);
+    console.log("loginform", this.profileForm.value);
     this.router.navigate(['/randevular'], {
       state: { data: this.profileForm.value, klinik: this.selectedKlinik},
     });

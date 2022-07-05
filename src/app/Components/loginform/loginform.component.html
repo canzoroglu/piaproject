@@ -11,7 +11,7 @@
   
     <label for="klinik">Klinik: </label>
     <select id="klinik" name="klinik" formControlName="klinik" (change)="handleChange($event.target!)">
-      <option [value]="null">Klinik Seçiniz</option>
+      <option [value]="null" [selected]="true">Klinik Seçiniz</option>
       <option *ngFor="let klinik of klinikler" [value]="klinik">{{klinik}}</option>
     </select>
   
