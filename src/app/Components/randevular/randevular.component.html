@@ -2,27 +2,29 @@
 <!-- Bu sayfa uygun randevuları listeleyecek -->
 <p>randevular works!</p>
 <!-- <p>{{ firstName }}</p> -->
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <label for="date">Date: </label>
-  <input id="date" type="text" formControlName="date" />
-
-  <label for="time">Time: </label>
-  <input id="time" type="text" formControlName="time" />
-
-  <label for="doctor">Doctor: </label>
-  <select id="doctor" name="doctor" formControlName="doctor">
-    <option>Dr. Rohit chabra</option>
-    <option>Dr. Abbas Shahid</option>
-    <option>Dr. Abdul Malik</option>
-    <option>Dr. Achraya Dinesh</option>
-    <option>Dr. Achraya Dilip</option>
-    <option>Dr. Dhand Hemlata</option>
-  </select>
-
-  <p>Complete the form to enable button.</p>
-  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
-  <p>Form Status: {{ profileForm.status }}</p>
-</form>
-<app-calendar [randevular]="randevular" [klinik]="klinik"></app-calendar>
+<div class="randevular-container">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="date">Date: </label>
+    <input id="date" type="text" formControlName="date" />
+  
+    <label for="time">Time: </label>
+    <input id="time" type="text" formControlName="time" />
+  
+    <label for="doctor">Doctor: </label>
+    <select id="doctor" name="doctor" formControlName="doctor">
+      <option>Dr. Rohit chabra</option>
+      <option>Dr. Abbas Shahid</option>
+      <option>Dr. Abdul Malik</option>
+      <option>Dr. Achraya Dinesh</option>
+      <option>Dr. Achraya Dilip</option>
+      <option>Dr. Dhand Hemlata</option>
+    </select>
+  
+    <p>Complete the form to enable button.</p>
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    <p>Form Status: {{ profileForm.status }}</p>
+  </form>
+</div>
+<app-calendar [randevular]="filteredRandevular" [klinik]="klinik"></app-calendar>
 
 

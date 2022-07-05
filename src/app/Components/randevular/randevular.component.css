@@ -1,0 +1,31 @@
+.randevular-container {
+    display: flex;
+    width: 40%;
+    margin: 40px auto;
+    background-color: aquamarine;
+    padding: 20px 0;
+    border-radius: 10%;
+  }
+  
+  .randevular-container form{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+  }
+  
+  input, select {
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+  }
+  
+  button {
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    background-color:aliceblue;
+  }

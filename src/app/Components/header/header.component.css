@@ -2,8 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: aqua;
+  padding: 20px 10px;
+  margin-bottom: 15px;
 }
 
 .nav a {
   margin-right: 15px;
+  text-decoration: none;
 }

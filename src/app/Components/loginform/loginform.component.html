@@ -1,21 +1,23 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <label for="first-name">First Name: </label>
-  <input id="first-name" type="text" formControlName="firstName" />
-
-  <label for="last-name">Last Name: </label>
-  <input id="last-name" type="text" formControlName="lastName" />
-
-  <label for="tc">TC: </label>
-  <input id="tc" type="text" formControlName="tc" />
-
-  <label for="klinik">Klinik: </label>
-  <select id="klinik" name="klinik" formControlName="klinik">
-    <option value="seciniz">Klinik Seçiniz</option>
-    <option *ngFor="let klinik of klinikler">{{klinik}}</option>
-  </select>
-
-  <p>Complete the form to enable button.</p>
-  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
-  <p>Form Status: {{ profileForm.status }}</p>
-  <button type="button" (click)="updateProfile()">Update Profile</button>
-</form>
+<div class="login-container">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstName" />
+  
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName="lastName" />
+  
+    <label for="tc">TC: </label>
+    <input id="tc" type="text" formControlName="tc" />
+  
+    <label for="klinik">Klinik: </label>
+    <select id="klinik" name="klinik" formControlName="klinik" (change)="handleChange($event.target!)">
+      <option [value]="null">Klinik Seçiniz</option>
+      <option *ngFor="let klinik of klinikler" [value]="klinik">{{klinik}}</option>
+    </select>
+  
+    <p>Complete the form to enable button.</p>
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    <p>Form Status: {{ profileForm.status }}</p>
+    <button type="button" (click)="updateProfile()">Update Profile</button>
+  </form>  
+</div>

@@ -15,8 +15,11 @@ export class Randevu {
   }
 }
 
-export const klinikler:any = {"Göz":["Ali", "Veli"], "Ortopedi": ["Ahmet", "Mehmet"], "Dahiliye":["Selim", "Ayşe"], 
-"Cildiye":["Fatma", "Murat"]};
+export const klinikler:any = {
+  "Göz":["Ali", "Veli"],
+  "Ortopedi": ["Ahmet", "Mehmet"],
+  "Dahiliye":["Selim", "Ayşe"], 
+  "Cildiye":["Fatma", "Murat"]};
 
 const randevuList: Randevu[] = [];
 for (const klinik in klinikler) {

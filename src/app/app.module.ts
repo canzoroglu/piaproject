@@ -12,6 +12,7 @@ import { LoginformComponent } from './Components/loginform/loginform.component';
 import { RandevularComponent } from './Components/randevular/randevular.component';
 import { RandevularimComponent } from './Components/randevularim/randevularim.component';
 import { CalendarComponent } from './Components/calendar/calendar.component';
+import { RandevudetailsComponent } from './Components/randevudetails/randevudetails.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CalendarComponent } from './Components/calendar/calendar.component';
     RandevularComponent,
     RandevularimComponent,
     CalendarComponent,
+    RandevudetailsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],

@@ -22,14 +22,20 @@ export class LoginformComponent implements OnInit {
     klinik: ['', Validators.required],
   });
   klinikler = Object.keys(klinikler);
+  selectedKlinik = "";
   constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {}
 
+  handleChange(event:EventTarget)
+  {
+    this.selectedKlinik = (event as HTMLSelectElement).value;
+  }
+
   onSubmit(): void {
-    console.warn(this.profileForm.value);
+    console.warn("loginform", this.profileForm.value);
     this.router.navigate(['/randevular'], {
-      state: { data: this.profileForm.value },
+      state: { data: this.profileForm.value, klinik: this.selectedKlinik},
     });
   }
   updateProfile() {
