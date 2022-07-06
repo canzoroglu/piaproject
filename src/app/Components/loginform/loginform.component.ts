@@ -27,6 +27,7 @@ export class LoginformComponent implements OnInit {
   klinikler : string[] = Object.keys(klinikler);
   selectedKlinik = "";
   isValidPerson = false;
+  doctorsInKlinik = [];
   constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
@@ -75,9 +76,15 @@ export class LoginformComponent implements OnInit {
     //       });
     //     }
     //   });
+    fetch(`${allConstants.BASE_URL}/doctor/doctorBranch?branch=${this.selectedKlinik}`)
+      .then((response) => response.json())
+      .then((json) => {
+        this.doctorsInKlinik = json;
+        console.log(this.doctorsInKlinik);
+      });
 
       this.router.navigate(['/randevular'], {
-        state: { data: this.profileForm.value, klinik: this.selectedKlinik},
+        state: { data: this.profileForm.value, klinik: this.selectedKlinik, doctors:this.doctorsInKlinik},
       });
   }
   updateProfile() {

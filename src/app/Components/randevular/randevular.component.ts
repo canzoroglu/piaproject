@@ -29,7 +29,9 @@ export class RandevularComponent implements OnInit {
 
   // history.state.data.klinik buraya loginform.component.ts'den geliyor
   klinik = history.state.klinik;
+  // doctors = history.state.doctors;
   filteredRandevular: Randevu[] = randevular.filter(randevu => randevu.klinik === this.klinik);
+  // filteredRandevular = history.state.randevular;
   constructor(private fb: FormBuilder, private router: Router) {}
 
   onSubmit(): void {
