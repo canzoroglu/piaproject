@@ -1,6 +1,29 @@
 * {
     text-align: center;
 }
-.calendar {
-    margin-bottom: 20px;
+.calendar-container{
+    display: grid;
+    place-items: center;
 }
+.calendar p{
+    font-size: 40px;
+    font-weight: bolder;
+    color: #fff;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    
+}
+.btn button{
+    border:none;
+    background-color: #6dc5fb;
+    padding: 10px 20px;
+    width: 15%;
+    color: #333;
+    font-size: 1.5rem;
+}
+

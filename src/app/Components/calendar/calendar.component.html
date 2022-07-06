@@ -1,11 +1,21 @@
 <!-- div içindeki bölgeyi randevu-item şeklinde bir komponenet olarak tanımlayabilirsin -->
-<p class="calendar">{{klinik}} Kliniği Randevuları</p>
+<div class="calendar-container">
+  <div class="calendar">
+    <p>{{ klinik }} Kliniği Randevuları</p>
+  </div>
+</div>
 <!-- <div>
     <p>{{randevular[0].doctor}}</p>
 </div> -->
-    
+
 <div *ngFor="let doctor of doctors">
-    <button (click)="toggleDetails(doctor)">{{doctor}}</button>
-    <app-randevudetails *ngIf="doctor === selectedDoctor" [doctor]="doctor" [randevuByDoctor]="randevuByDoctor"></app-randevudetails>  
-    <!-- <p *ngFor="let date of randevuByDoctor[doctor]">{{date}}</p> -->
+  <div class="btn">
+    <button (click)="toggleDetails(doctor)">{{ doctor }}</button>
+  </div>
+  <app-randevudetails
+    *ngIf="doctor === selectedDoctor"
+    [doctor]="doctor"
+    [randevuByDoctor]="randevuByDoctor"
+  ></app-randevudetails>
+  <!-- <p *ngFor="let date of randevuByDoctor[doctor]">{{date}}</p> -->
 </div>

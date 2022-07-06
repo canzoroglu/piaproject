@@ -27,9 +27,16 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	/* background: linear-gradient( #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1) fixed center/cover; */
+	background: url('./assets/bg.jpg') no-repeat center center/cover fixed;
 }
 ol, ul {
 	list-style: none;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+footer{
+	width: 100%;
+	background-color: #333;
+	height: 100px;
+	
+}

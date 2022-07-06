@@ -1,10 +1,11 @@
 .login-container {
   display: flex;
-  width: 40%;
+  width: 300px;
   margin: 40px auto;
-  background-color: aquamarine;
-  padding: 20px 0;
-  border-radius: 10%;
+  padding: 30px 30px;
+  border-radius: 10px;
+  background:  #141D26;
+  
 }
 
 .login-container form{
@@ -17,15 +18,40 @@
 }
 
 input, select {
-  border-radius: 5px;
   border: none;
-  padding: 5px;
+  padding: 10px;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+form > label{
+  color: #fff;
+  display: inline-block;
+  align-self: flex-start;
+  margin-left: 10px;
+}
+
+p{
+  color: #69bdfe;
+  font-size: 12px;
 }
 
 button {
-  padding: 15px;
+  padding: 10px 20px;
   text-decoration: none;
-  border-radius: 6px;
   border: none;
-  background-color:aliceblue;
+  background-color:#8E278F;
+  width: 90%;
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+input[type=text]:focus {
+  border: 3px solid #69bdfe;
+}
+
+select:focus{
+  border: 3px solid #69bdfe;
 }

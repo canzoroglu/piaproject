@@ -1,31 +1,64 @@
 .randevular-container {
-    display: flex;
-    width: 40%;
-    margin: 40px auto;
-    background-color: aquamarine;
-    padding: 20px 0;
-    border-radius: 10%;
+  display: flex;
+  width: 300px;
+  margin: 20px auto;
+  padding: 30px 30px;
+  border-radius: 10px;
+  background:  #141D26;
   }
   
   .randevular-container form{
     display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 10px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
   }
   
   input, select {
-    border-radius: 5px;
     border: none;
-    padding: 5px;
+  padding: 10px;
+  width: 90%;
+  box-sizing: border-box;
   }
   
+  form > label{
+    color: #fff;
+  display: inline-block;
+  align-self: flex-start;
+  margin-left: 10px;
+  }
+
   button {
     padding: 15px;
     text-decoration: none;
     border-radius: 6px;
     border: none;
     background-color:aliceblue;
+  }
+
+  p{
+    color: #69bdfe;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    background-color:#8E278F;
+    width: 90%;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bolder;
+  }
+  
+  input[type=text]:focus {
+    border: 3px solid #69bdfe;
+  }
+  
+  select:focus{
+    border: 3px solid #69bdfe;
   }
