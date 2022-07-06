@@ -16,6 +16,7 @@ import { CalendarComponent } from './Components/calendar/calendar.component';
 import { RandevudetailsComponent } from './Components/randevudetails/randevudetails.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+import { DoctorloginComponent } from './Components/doctorlogin/doctorlogin.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     RandevularimComponent,
     CalendarComponent,
     RandevudetailsComponent,
+    DoctorloginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule, MatDialogModule],
   providers: [

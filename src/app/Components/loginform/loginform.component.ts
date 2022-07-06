@@ -2,12 +2,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {
-  FormGroup,
-  FormControl,
   FormBuilder,
   Validators,
 } from '@angular/forms';
-import { klinikler } from 'src/app/Models/randevu';
+import { klinikler } from 'src/app/Models/randevu'; // API'den al
 import { allConstants } from 'src/app/constants';
 
 @Component({
@@ -24,14 +22,14 @@ export class LoginformComponent implements OnInit {
     klinik: ['', Validators.required],
   });
   // klinikler : string[] = [];
-  klinikler : string[] = Object.keys(klinikler);
+  klinikler : string[] = klinikler; // API'den al
   selectedKlinik = "";
   isValidPerson = false;
-  doctorsInKlinik = [];
+  doctorsInKlinik = ["Ahmet", "Ali", "Ayşe"]; // API'den al
   constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
-    // fetch(`${allConstants.BASE_URL}/klinikler`)
+    // fetch(`${allConstants.BASE_URL}/doctor/branches`)
     //   .then((response) => response.json())
     //   .then((json) => {
     //     this.klinikler = json;
@@ -43,12 +41,6 @@ export class LoginformComponent implements OnInit {
   {
     this.selectedKlinik = (event as HTMLSelectElement).value;
   }
-
-  // handleTextInputKeyDown(event: Event)
-  // {
-  //   console.log((event.target! as HTMLInputElement).value);
-  //   return /[a-z]/i.test((event.target! as HTMLInputElement).value)
-  // }
 
   onSubmit(): void {
     console.log("loginform", this.profileForm.value);
@@ -76,15 +68,17 @@ export class LoginformComponent implements OnInit {
     //       });
     //     }
     //   });
-    fetch(`${allConstants.BASE_URL}/doctor/doctorBranch?branch=${this.selectedKlinik}`)
-      .then((response) => response.json())
-      .then((json) => {
-        this.doctorsInKlinik = json;
-        console.log(this.doctorsInKlinik);
-      });
+
+    // Seçilen klinikteki doktorları getir
+    // fetch(`${allConstants.BASE_URL}/doctor/doctorBranch?branch=${this.selectedKlinik}`)
+    //   .then((response) => response.json())
+    //   .then((json) => {
+    //     this.doctorsInKlinik = json;
+    //     console.log(this.doctorsInKlinik);
+    //   });
 
       this.router.navigate(['/randevular'], {
-        state: { data: this.profileForm.value, klinik: this.selectedKlinik, doctors:this.doctorsInKlinik},
+        state: { data: this.profileForm.value, doctors:this.doctorsInKlinik},
       });
   }
   updateProfile() {

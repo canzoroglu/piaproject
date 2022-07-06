@@ -9,7 +9,6 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class RandevudetailsComponent implements OnInit {
 
-  @Input() randevuByDoctor!:any
   @Input() doctor!:string
   weekdays = ["Pzt", "Sal", "Çarş", "Perş", "Cu"];
   times = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30"]

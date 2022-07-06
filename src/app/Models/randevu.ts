@@ -15,53 +15,6 @@ export class Randevu {
   }
 }
 
-export const klinikler:any = {
-  "Göz":["Ali", "Veli"],
-  "Ortopedi": ["Ahmet", "Mehmet"],
-  "Dahiliye":["Selim", "Ayşe"], 
-  "Cildiye":["Fatma", "Murat"]};
+export const klinikler = ["Göz", "Ortopedi", "Dahiliye", "Cildiye"];
 
-const randevuList: Randevu[] = [];
-// for (const klinik in klinikler) {
-//     for (const doctor of klinikler[klinik]) {
-//         for (let day = 1; day < 6; day++) {
-//         let today = new Date();
-//         let [year, month] = [today.getFullYear(), today.getMonth()];
-//         for (let hour = 9; hour < 12; hour++) {
-//             for (let minute = 0; minute < 60; minute+=20) {
-//                 let randevuDate = new Date(year, month, day, hour, minute, 0);
-//                 randevuList.push(new Randevu(randevuDate, doctor, klinik))
-//             }
-            
-//         }
-//     }
-//     }
-// }
-let days = [];
-for (const klinik in klinikler) {
-    for (const doctor of klinikler[klinik]) {
-        let weeklyRandevu = 0;
-        let today = new Date();
-        let dayCount = 1;
-        // let day = today.getDay();
-        while (weeklyRandevu < 5) {
-          weeklyRandevu++;
-          let [year, month, randevuDay] = [today.getFullYear(), today.getMonth(), today.getDay()];
-          // days.push(today);
-          if (randevuDay > 0 && randevuDay < 6)
-          {
-            for (let hour = 9; hour < 12; hour++) {
-                for (let minute = 0; minute < 60; minute+=20) {
-                    let randevuDate = new Date(year, month, randevuDay, hour, minute, 0);
-                    randevuList.push(new Randevu(randevuDate, doctor, klinik))
-                }
-                
-            }
-          }
-        today.setDate(today.getDate() + dayCount++);
-      }
-    }
-}
-// export const daysArr = [...days];
-export const randevular: Randevu[] = [...randevuList]
 

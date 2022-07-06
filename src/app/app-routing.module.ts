@@ -5,6 +5,7 @@ import { AboutComponent } from './Components/about/about.component';
 import { RandevualComponent } from './Components/randevual/randevual.component';
 import { RandevularComponent } from './Components/randevular/randevular.component';
 import { RandevularimComponent } from './Components/randevularim/randevularim.component';
+import { DoctorloginComponent } from './Components/doctorlogin/doctorlogin.component';
 
 const routes: Routes = [
   { path: 'anasayfa', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'randevual', component: RandevualComponent },
   { path: 'randevular', component: RandevularComponent },
   { path: 'randevularim', component: RandevularimComponent },
+  { path: 'doktor', component: DoctorloginComponent },
 ];
 
 @NgModule({

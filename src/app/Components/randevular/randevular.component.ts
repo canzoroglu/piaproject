@@ -3,12 +3,8 @@ Bu komponent hastanın seçtiği klinikteki uygun randevuları gösteren ve hast
 randevu almasına olanak tanımaktadır.
 */
 import { Component, OnInit, Input } from '@angular/core';
-import { Post } from '../../Models/post';
-import { Randevu, randevular } from '../../Models/randevu';
 import { Router } from '@angular/router';
 import {
-  FormGroup,
-  FormControl,
   FormBuilder,
   Validators,
 } from '@angular/forms';
@@ -24,14 +20,10 @@ export class RandevularComponent implements OnInit {
     time: ['', Validators.required],
     doctor: ['', Validators.required],
   });
-  // firstName = history.state.data.firstName;
-  // posts: Post[] = [];
 
-  // history.state.data.klinik buraya loginform.component.ts'den geliyor
+  // history.state.data.klinik ve doctors buraya loginform.component.ts'den geliyor
   klinik = history.state.klinik;
-  // doctors = history.state.doctors;
-  filteredRandevular: Randevu[] = randevular.filter(randevu => randevu.klinik === this.klinik);
-  // filteredRandevular = history.state.randevular;
+  doctors = history.state.doctors;
   constructor(private fb: FormBuilder, private router: Router) {}
 
   onSubmit(): void {
@@ -42,12 +34,6 @@ export class RandevularComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(randevular);
-    // console.log(this.klinik)
-    console.log("filtered randevular",this.filteredRandevular);
-    // fetch('https://jsonplaceholder.typicode.com/posts')
-    //   .then((response) => response.json())
-    //   .then((json) => (this.posts = json));
   }
 }
 
