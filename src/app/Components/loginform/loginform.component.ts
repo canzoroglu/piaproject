@@ -7,7 +7,7 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
-// import { klinikler } from 'src/app/Models/randevu';
+import { klinikler } from 'src/app/Models/randevu';
 import { allConstants } from 'src/app/constants';
 
 @Component({
@@ -19,20 +19,23 @@ export class LoginformComponent implements OnInit {
   profileForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    tc: ['', [Validators.required, Validators.pattern(/\d{5}/)]],
+    birthdate: ['', Validators.required],
+    tc: ['', [Validators.required, Validators.pattern(/\d{11}/)]],
     klinik: ['', Validators.required],
   });
-  klinikler : string[] = [];
+  // klinikler : string[] = [];
+  klinikler : string[] = Object.keys(klinikler);
   selectedKlinik = "";
+  isValidPerson = false;
   constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
-    fetch(`${allConstants.BASE_URL}/appoinment`)
-      .then((response) => response.json())
-      .then((json) => {
-        this.klinikler = json;
-        console.log(this.klinikler);
-      });
+    // fetch(`${allConstants.BASE_URL}/klinikler`)
+    //   .then((response) => response.json())
+    //   .then((json) => {
+    //     this.klinikler = json;
+    //     console.log(this.klinikler);
+    //   });
   }
 
   handleChange(event:EventTarget)
@@ -40,17 +43,49 @@ export class LoginformComponent implements OnInit {
     this.selectedKlinik = (event as HTMLSelectElement).value;
   }
 
+  // handleTextInputKeyDown(event: Event)
+  // {
+  //   console.log((event.target! as HTMLInputElement).value);
+  //   return /[a-z]/i.test((event.target! as HTMLInputElement).value)
+  // }
+
   onSubmit(): void {
     console.log("loginform", this.profileForm.value);
-    this.router.navigate(['/randevular'], {
-      state: { data: this.profileForm.value, klinik: this.selectedKlinik},
-    });
+    // fetch(`${allConstants.BASE_URL}/validateperson`, {
+    //   method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    //   mode: 'no-cors', // no-cors, *cors, same-origin
+    //   cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    //   credentials: 'same-origin', // include, *same-origin, omit
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //     // 'Content-Type': 'application/x-www-form-urlencoded',
+    //   },
+    //   redirect: 'follow', // manual, *follow, error
+    //   referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    //   body: JSON.stringify(this.profileForm.value) // body data type must match "Content-Type" header
+    // })
+    //   .then((response) => response.json())
+    //   .then((json) => {
+    //     this.isValidPerson = json;
+    //     console.log(this.isValidPerson);
+    //     if(this.isValidPerson)
+    //     {
+    //       this.router.navigate(['/randevular'], {
+    //         state: { data: this.profileForm.value, klinik: this.selectedKlinik},
+    //       });
+    //     }
+    //   });
+
+      this.router.navigate(['/randevular'], {
+        state: { data: this.profileForm.value, klinik: this.selectedKlinik},
+      });
   }
   updateProfile() {
     this.profileForm.patchValue({
       firstName: 'Can',
       lastName: 'Zoroğlu',
-      tc: '12345',
+      birthdate: '1990',
+      tc: '12345678910',
     });
   }
 }

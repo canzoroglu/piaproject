@@ -1,17 +1,20 @@
 <div class="login-container">
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <label for="first-name">First Name: </label>
-    <input id="first-name" type="text" formControlName="firstName" />
+    <label for="first-name">İsim </label>
+    <input id="first-name" type="text" onkeydown="return /[a-z]/i.test(event.key)" formControlName="firstName" />
   
-    <label for="last-name">Last Name: </label>
-    <input id="last-name" type="text" formControlName="lastName" />
+    <label for="last-name">Soyadı </label>
+    <input id="last-name" type="text" onkeydown="return /[a-z]/i.test(event.key)" formControlName="lastName" />
+    
+    <label for="birthdate">Doğum Yılı </label>
+    <input id="birthdate" type="number" formControlName="birthdate" />
   
     <label for="tc">TC: </label>
-    <input id="tc" type="text" formControlName="tc" />
+    <input id="tc" type="number" formControlName="tc" />
   
     <label for="klinik">Klinik: </label>
     <select id="klinik" name="klinik" formControlName="klinik" (change)="handleChange($event.target!)">
-      <option [value]="null" [selected]="true">Klinik Seçiniz</option>
+      <!-- <option [value]="null" [selected]="true">Klinik Seçiniz</option> -->
       <option *ngFor="let klinik of klinikler" [value]="klinik">{{klinik}}</option>
     </select>
   

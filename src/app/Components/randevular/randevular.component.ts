@@ -40,8 +40,9 @@ export class RandevularComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(randevular);
     // console.log(this.klinik)
-    // console.log("randevular",this.filteredRandevular);
+    console.log("filtered randevular",this.filteredRandevular);
     // fetch('https://jsonplaceholder.typicode.com/posts')
     //   .then((response) => response.json())
     //   .then((json) => (this.posts = json));

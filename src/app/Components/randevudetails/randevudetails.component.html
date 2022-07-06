@@ -1,2 +1,7 @@
-<p>randevudetails works!</p>
-<p *ngFor="let date of randevuByDoctor[doctor]">{{date}}</p>
+<!-- <p *ngFor="let date of randevuByDoctor[doctor]">{{date.toDateString().split(" ")[0]}}</p> -->
+<div class="randevu-detail"> 
+    <div *ngFor="let day of weekdays" class="times">
+    {{day}}
+    <button *ngFor="let time of times">{{time}}</button>
+    </div>
+</div> 

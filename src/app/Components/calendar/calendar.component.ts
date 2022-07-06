@@ -23,6 +23,7 @@ export class CalendarComponent implements OnInit, OnChanges {
         acc[randevu.doctor] = [];
       return acc;
     }, {});
+    console.log(this.randevuByDoctor);
     this.doctors = Object.keys(this.randevuByDoctor);
   }
 
@@ -32,7 +33,8 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    // console.log("calendar", this.randevular);
+    console.log("calendar", this.randevular);
+    // console.log("days arr", daysArr);
     // console.log("calendar", this.klinik);
     this.randevular.forEach(randevu => {
       this.randevuByDoctor[randevu.doctor].push(randevu.date);
