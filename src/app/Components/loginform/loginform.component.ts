@@ -5,7 +5,7 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
-import { klinikler } from 'src/app/Models/randevu'; // API'den al
+// import { klinikler } from 'src/app/Models/randevu'; // API'den al
 import { allConstants } from 'src/app/constants';
 
 @Component({
@@ -21,20 +21,20 @@ export class LoginformComponent implements OnInit {
     tc: ['', [Validators.required, Validators.pattern(/\d{11}/)]],
     klinik: ['', Validators.required],
   });
-  // klinikler : string[] = [];
-  klinikler : string[] = klinikler; // API'den al
+  klinikler : string[] = [];
+  // klinikler : string[] = [klinikler]; // API'den al
   selectedKlinik = "";
   isValidPerson = false;
-  doctorsInKlinik = ["Ahmet", "Ali", "Ayşe"]; // API'den al
+  doctorsInKlinik = []; // API'den al
   constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
-    // fetch(`${allConstants.BASE_URL}/doctor/branches`)
-    //   .then((response) => response.json())
-    //   .then((json) => {
-    //     this.klinikler = json;
-    //     console.log(this.klinikler);
-    //   });
+    fetch(`${allConstants.BASE_URL}/doctor/branches`)
+      .then((response) => response.json())
+      .then((json) => {
+        this.klinikler = json;
+        console.log(this.klinikler);
+      });
   }
 
   handleChange(event:EventTarget)
@@ -70,16 +70,16 @@ export class LoginformComponent implements OnInit {
     //   });
 
     // Seçilen klinikteki doktorları getir
-    // fetch(`${allConstants.BASE_URL}/doctor/doctorBranch?branch=${this.selectedKlinik}`)
-    //   .then((response) => response.json())
-    //   .then((json) => {
-    //     this.doctorsInKlinik = json;
-    //     console.log(this.doctorsInKlinik);
-    //   });
-
-      this.router.navigate(['/randevular'], {
-        state: { data: this.profileForm.value, doctors:this.doctorsInKlinik},
+    fetch(`${allConstants.BASE_URL}/doctor/doctorBranch?branch=${this.selectedKlinik}`)
+      .then((response) => response.json())
+      .then((json) => {
+        this.doctorsInKlinik = json;
+        console.log(this.doctorsInKlinik);
+        this.router.navigate(['/randevular'], {
+          state: { data: this.profileForm.value, doctors:this.doctorsInKlinik, klinik:this.selectedKlinik},
+        });
       });
+
   }
   updateProfile() {
     this.profileForm.patchValue({

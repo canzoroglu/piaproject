@@ -1,8 +1,6 @@
 <!-- Hasta bilgilerini girdikten sonra bu sayfaya yönlendirilecek -->
 <!-- Bu sayfa uygun randevuları listeleyecek -->
-<p>randevular works!</p>
-<!-- <p>{{ firstName }}</p> -->
-<div class="randevular-container">
+<!-- <div class="randevular-container">
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <label for="date">Date: </label>
     <input id="date" type="text" formControlName="date" />
@@ -12,19 +10,14 @@
   
     <label for="doctor">Doctor: </label>
     <select id="doctor" name="doctor" formControlName="doctor">
-      <option>Dr. Rohit chabra</option>
-      <option>Dr. Abbas Shahid</option>
-      <option>Dr. Abdul Malik</option>
-      <option>Dr. Achraya Dinesh</option>
-      <option>Dr. Achraya Dilip</option>
-      <option>Dr. Dhand Hemlata</option>
+      <option *ngFor="let doctor of doctors" [value]="doctor">{{doctor}}</option>
     </select>
   
     <p>Complete the form to enable button.</p>
     <button type="submit" [disabled]="!profileForm.valid">Submit</button>
     <p>Form Status: {{ profileForm.status }}</p>
   </form>
-</div>
-<app-calendar [doctors]="doctors" [klinik]="klinik"></app-calendar>
+</div> -->
+<app-calendar [doctors]="doctors" [klinik]="klinik" [tc]="patientTc"></app-calendar>
 
 

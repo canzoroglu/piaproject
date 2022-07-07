@@ -7,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./randevularim.component.css'],
 })
 export class RandevularimComponent implements OnInit {
-  doctor = history.state.data.doctor;
-  date = history.state.data.date;
-  time = history.state.data.time;
+  // doctor = history.state.data.doctor;
+  // date = history.state.data.date;
+  // time = history.state.data.time;
+  data = history.state.data;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.data);
+  }
 }

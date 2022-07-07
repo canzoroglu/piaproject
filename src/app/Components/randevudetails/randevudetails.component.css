@@ -7,4 +7,5 @@
 .times {
     display: flex;
     flex-direction: column;
+    color: red;
 }

@@ -24,6 +24,7 @@ export class RandevularComponent implements OnInit {
   // history.state.data.klinik ve doctors buraya loginform.component.ts'den geliyor
   klinik = history.state.klinik;
   doctors = history.state.doctors;
+  patientTc = history.state.data.tc;
   constructor(private fb: FormBuilder, private router: Router) {}
 
   onSubmit(): void {
@@ -34,6 +35,7 @@ export class RandevularComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.klinik);
   }
 }
 

@@ -10,11 +10,12 @@
 
 <div *ngFor="let doctor of doctors">
   <div class="btn">
-    <button (click)="toggleDetails(doctor)">{{ doctor }}</button>
+    <button (click)="toggleDetails(doctor)">{{ doctor.name }}</button>
   </div>
   <app-randevudetails
     *ngIf="doctor === selectedDoctor"
     [doctor]="doctor"
+    [tc] = "tc"
   ></app-randevudetails>
   <!-- <p *ngFor="let date of randevuByDoctor[doctor]">{{date}}</p> -->
 </div>

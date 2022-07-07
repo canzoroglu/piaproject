@@ -9,8 +9,9 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 })
 export class CalendarComponent implements OnInit, OnChanges {
 
-  @Input() doctors!: string[];
+  @Input() doctors!: any[];
   @Input() klinik!: string;
+  @Input() tc!: string;
   selectedDoctor = "";
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
@@ -22,7 +23,7 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-  
+    console.log(this.doctors);
   }
 
 }
